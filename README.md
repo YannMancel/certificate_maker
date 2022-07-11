@@ -30,6 +30,10 @@
 * State managers
     * [flutter_hooks][dependencies_flutter_hooks]
     * [hooks_riverpod][dependencies_hooks_riverpod]
+* Directory path
+    * [dependencies_path_provider]
+* Pdf & Printing
+    * [printing][dependencies_printing]
 
 ## Troubleshooting
 
@@ -57,6 +61,8 @@
 [dependencies_freezed_annotation]: https://pub.dev/packages/freezed_annotation
 [dependencies_flutter_hooks]: https://pub.dev/packages/flutter_hooks
 [dependencies_hooks_riverpod]: https://pub.dev/packages/hooks_riverpod
+[dependencies_path_provider]: https://pub.dev/packages/path_provider
+[dependencies_printing]: https://pub.dev/packages/printing
 [useful_android_studio]: https://developer.android.com/studio
 [useful_virtual_device]: https://developer.android.com/studio/run/managing-avds.html
 [useful_developer_options]: https://developer.android.com/studio/debug/dev-options.html#enable

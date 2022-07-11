@@ -2,21 +2,6 @@ import 'package:certificate_maker/_features.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart'
     show ProviderBase, ProviderContainer, ProviderObserver;
 
-enum EventType {
-  add,
-  update,
-  fail,
-  dispose;
-
-  int get _lengthMax {
-    return EventType.values
-        .map((e) => e.name.length)
-        .reduce((a, b) => (a < b) ? b : a);
-  }
-
-  String get formattedName => name.toUpperCase().padRight(_lengthMax);
-}
-
 class AppObserver extends ProviderObserver {
   const AppObserver();
 

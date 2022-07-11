@@ -17,9 +17,18 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(150.0),
           child: Assets.images.ikmfLogoLabels.image(),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            PreviewPage.route<void>(),
+          );
+        },
+        child: const Icon(Icons.favorite),
       ),
     );
   }
