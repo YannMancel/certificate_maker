@@ -8,9 +8,9 @@ class AdaptiveView extends StatelessWidget {
   Widget build(BuildContext context) {
     return AdaptiveLayout(
       builder: (_, screenSize) => screenSize.when<Widget>(
-        small: () => const HomePage(title: kAppName),
-        medium: () => const HomePage(title: kAppName),
-        large: () => const HomePage(title: kAppName),
+        small: () => const SmallLayout(),
+        medium: () => const MediumLayout(),
+        large: () => const LargeLayout(),
       ),
     );
   }
