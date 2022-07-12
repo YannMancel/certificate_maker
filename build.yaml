@@ -6,5 +6,6 @@ targets:
       freezed|freezed:
         enabled: true
         generate_for:
+          - "lib/core/models/certificate.dart"
           - "lib/core/models/dialog_state.dart"
           - "lib/core/models/screen_size.dart"

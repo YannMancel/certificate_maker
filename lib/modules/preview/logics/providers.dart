@@ -11,7 +11,19 @@ final printingLogicRef = Provider.autoDispose<PrintingLogicInterface>(
 final asyncPreviewRef = FutureProvider.autoDispose<Widget>(
   (ref) async {
     final logic = ref.watch(printingLogicRef);
-    return logic.createPreview();
+
+    const _kCertificate = Certificate.judge(
+      id: 4,
+      discipline: 'Games',
+      event: 'Double Half Snatch',
+      kettlebell: '2x16kg',
+      weightGroup: 'Open',
+      ageGroup: '-75kg',
+      firstName: 'Yann',
+      lastName: 'Mancel',
+    );
+
+    return logic.createPreview(_kCertificate);
   },
   name: 'asyncPreviewRef',
 );

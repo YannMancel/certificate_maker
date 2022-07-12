@@ -8,14 +8,14 @@ import 'package:printing/printing.dart' as printing;
 
 abstract class PrintingLogicInterface {
   static const kName = 'PrintingLogicInterface';
-  Future<material.Widget> createPreview();
-  Future<void> savePdf({
-    required String fileName,
+  Future<material.Widget> createPreview(Certificate certificate);
+  Future<void> savePdf(
+    Certificate certificate, {
     DirectoryName directoryName = DirectoryName.temporary,
   });
-  Future<void> sharePdf({required String fileName});
-  Future<void> printWithPreview({required String fileName});
-  Future<void> printWithoutPreview({required String fileName});
+  Future<void> sharePdf(Certificate certificate);
+  Future<void> printWithPreview(Certificate certificate);
+  Future<void> printWithoutPreview(Certificate certificate);
 }
 
 class PrintingLogic implements PrintingLogicInterface {
@@ -29,7 +29,7 @@ class PrintingLogic implements PrintingLogicInterface {
     );
   }
 
-  Future<pdf_widgets.Document> _createDocument() async {
+  Future<pdf_widgets.Document> _createDocument(Certificate certificate) async {
     final document = pdf_widgets.Document();
 
     final background = await printing.imageFromAssetBundle(
@@ -54,14 +54,46 @@ class PrintingLogic implements PrintingLogicInterface {
                 ),
               ),
               pdf_widgets.Positioned(
-                left: 100.0,
-                top: 5.0,
+                left: 0.0,
+                right: 0.0,
+                top: 245.0,
                 child: pdf_widgets.Text(
-                  "HELLO",
+                  'CERTIFIES',
+                  textAlign: pdf_widgets.TextAlign.center,
                   style: pdf_widgets.TextStyle(
-                    fontSize: 15.0,
+                    fontSize: 18.0,
+                    fontWeight: pdf_widgets.FontWeight.bold,
+                    color: const pdf.PdfColor.fromInt(0xFF000000),
+                  ),
+                ),
+              ),
+              pdf_widgets.Positioned(
+                left: 0.0,
+                right: 0.0,
+                top: 300.0,
+                child: pdf_widgets.Text(
+                  certificate.firstNameAndLastName,
+                  textAlign: pdf_widgets.TextAlign.center,
+                  style: pdf_widgets.TextStyle(
+                    fontSize: 32.0,
                     //font: ttf,
-                    color: const pdf.PdfColor.fromInt(0xFFF3A9B8),
+                    fontWeight: pdf_widgets.FontWeight.bold,
+                    decoration: pdf_widgets.TextDecoration.underline,
+                    color: const pdf.PdfColor.fromInt(0xFF893C38),
+                  ),
+                ),
+              ),
+              pdf_widgets.Positioned(
+                left: 0.0,
+                right: 0.0,
+                top: 375.0,
+                child: pdf_widgets.Text(
+                  'ACHIEVED THE TEST OF',
+                  textAlign: pdf_widgets.TextAlign.center,
+                  style: pdf_widgets.TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: pdf_widgets.FontWeight.bold,
+                    color: const pdf.PdfColor.fromInt(0xFF000000),
                   ),
                 ),
               ),
@@ -75,10 +107,10 @@ class PrintingLogic implements PrintingLogicInterface {
   }
 
   @override
-  Future<material.Widget> createPreview() async {
-    final document = await _createDocument();
+  Future<material.Widget> createPreview(Certificate certificate) async {
+    final document = await _createDocument(certificate);
     return printing.PdfPreview(
-      build: (format) => document.save(),
+      build: (_) => document.save(),
       initialPageFormat: _pageFormat,
       canChangePageFormat: false,
       canChangeOrientation: false,
@@ -86,45 +118,44 @@ class PrintingLogic implements PrintingLogicInterface {
   }
 
   @override
-  Future<void> savePdf({
-    required String fileName,
+  Future<void> savePdf(
+    Certificate certificate, {
     DirectoryName directoryName = DirectoryName.temporary,
   }) async {
-    final document = await _createDocument();
+    final document = await _createDocument(certificate);
     final output = await directoryName.asyncDirectory;
-    final finaleName = '$fileName.pdf';
-    final file = File('${output.path}/$finaleName');
+    final file = File('${output.path}/${certificate.fileName}.pdf');
     await file.writeAsBytes(await document.save());
   }
 
   @override
-  Future<void> sharePdf({required String fileName}) async {
-    final document = await _createDocument();
+  Future<void> sharePdf(Certificate certificate) async {
+    final document = await _createDocument(certificate);
     await printing.Printing.sharePdf(
       bytes: await document.save(),
-      filename: fileName,
+      filename: certificate.fileName,
     );
   }
 
   @override
-  Future<void> printWithPreview({required String fileName}) async {
-    final document = await _createDocument();
+  Future<void> printWithPreview(Certificate certificate) async {
+    final document = await _createDocument(certificate);
     await printing.Printing.layoutPdf(
       onLayout: (_) async => document.save(),
-      name: fileName,
+      name: certificate.fileName,
       format: _pageFormat,
       usePrinterSettings: true,
     );
   }
 
   @override
-  Future<void> printWithoutPreview({required String fileName}) async {
-    final document = await _createDocument();
+  Future<void> printWithoutPreview(Certificate certificate) async {
+    final document = await _createDocument(certificate);
     final printers = await printing.Printing.listPrinters();
     await printing.Printing.directPrintPdf(
       printer: printers.first,
       onLayout: (_) async => document.save(),
-      name: fileName,
+      name: certificate.fileName,
       format: _pageFormat,
       usePrinterSettings: true,
     );
