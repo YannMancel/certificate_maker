@@ -7,3 +7,4 @@ targets:
         enabled: true
         generate_for:
           - "lib/core/models/dialog_state.dart"
+          - "lib/core/models/screen_size.dart"
