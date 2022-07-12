@@ -2,21 +2,9 @@ import 'dart:io';
 
 import 'package:certificate_maker/_features.dart';
 import 'package:flutter/material.dart' as material;
-import 'package:pdf/pdf.dart' show PdfColor, PdfPageFormat;
-import 'package:pdf/widgets.dart'
-    show
-        Document,
-        Font,
-        Image,
-        Page,
-        Positioned,
-        Stack,
-        StackFit,
-        Text,
-        TextStyle,
-        Widget;
-import 'package:printing/printing.dart'
-    show PdfPreview, Printing, imageFromAssetBundle;
+import 'package:pdf/pdf.dart' as pdf;
+import 'package:pdf/widgets.dart' as pdf_widgets;
+import 'package:printing/printing.dart' as printing;
 
 abstract class PrintingLogicInterface {
   static const kName = 'PrintingLogicInterface';
@@ -33,10 +21,20 @@ abstract class PrintingLogicInterface {
 class PrintingLogic implements PrintingLogicInterface {
   const PrintingLogic();
 
-  Future<Document> _createDocument() async {
-    final document = Document();
+  pdf.PdfPageFormat get _pageFormat {
+    return pdf.PdfPageFormat(
+      pdf.PdfPageFormat.a4.width,
+      pdf.PdfPageFormat.a4.height,
+      marginAll: 1.0 * pdf.PdfPageFormat.cm,
+    );
+  }
 
-    final background = await imageFromAssetBundle(Assets.images.ikmfLogo.path);
+  Future<pdf_widgets.Document> _createDocument() async {
+    final document = pdf_widgets.Document();
+
+    final background = await printing.imageFromAssetBundle(
+      Assets.certificates.certificateJudge.path,
+    );
 
     // final font = await rootBundle.load(
     //   'assets/fonts/${FontFamily.brightwall}.ttf',
@@ -44,30 +42,26 @@ class PrintingLogic implements PrintingLogicInterface {
     // final ttf = Font.ttf(font);
 
     document.addPage(
-      Page(
-        pageFormat: PdfPageFormat.a4,
+      pdf_widgets.Page(
+        pageFormat: _pageFormat,
         build: (_) {
-          return Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              Positioned(
-                left: 0.0,
-                top: 0.0,
-                child: Image(
+          return pdf_widgets.Stack(
+            children: <pdf_widgets.Widget>[
+              pdf_widgets.Positioned.fill(
+                child: pdf_widgets.Image(
                   background,
-                  width: 50.0,
-                  height: 50.0,
+                  fit: pdf_widgets.BoxFit.fill,
                 ),
               ),
-              Positioned(
+              pdf_widgets.Positioned(
                 left: 100.0,
                 top: 5.0,
-                child: Text(
+                child: pdf_widgets.Text(
                   "HELLO",
-                  style: TextStyle(
+                  style: pdf_widgets.TextStyle(
                     fontSize: 15.0,
                     //font: ttf,
-                    color: const PdfColor.fromInt(0xFFF3A9B8),
+                    color: const pdf.PdfColor.fromInt(0xFFF3A9B8),
                   ),
                 ),
               ),
@@ -83,9 +77,11 @@ class PrintingLogic implements PrintingLogicInterface {
   @override
   Future<material.Widget> createPreview() async {
     final document = await _createDocument();
-
-    return PdfPreview(
+    return printing.PdfPreview(
       build: (format) => document.save(),
+      initialPageFormat: _pageFormat,
+      canChangePageFormat: false,
+      canChangeOrientation: false,
     );
   }
 
@@ -95,7 +91,6 @@ class PrintingLogic implements PrintingLogicInterface {
     DirectoryName directoryName = DirectoryName.temporary,
   }) async {
     final document = await _createDocument();
-
     final output = await directoryName.asyncDirectory;
     final finaleName = '$fileName.pdf';
     final file = File('${output.path}/$finaleName');
@@ -105,8 +100,7 @@ class PrintingLogic implements PrintingLogicInterface {
   @override
   Future<void> sharePdf({required String fileName}) async {
     final document = await _createDocument();
-
-    await Printing.sharePdf(
+    await printing.Printing.sharePdf(
       bytes: await document.save(),
       filename: fileName,
     );
@@ -115,10 +109,10 @@ class PrintingLogic implements PrintingLogicInterface {
   @override
   Future<void> printWithPreview({required String fileName}) async {
     final document = await _createDocument();
-
-    await Printing.layoutPdf(
+    await printing.Printing.layoutPdf(
       onLayout: (_) async => document.save(),
       name: fileName,
+      format: _pageFormat,
       usePrinterSettings: true,
     );
   }
@@ -126,12 +120,12 @@ class PrintingLogic implements PrintingLogicInterface {
   @override
   Future<void> printWithoutPreview({required String fileName}) async {
     final document = await _createDocument();
-    final printers = await Printing.listPrinters();
-
-    await Printing.directPrintPdf(
+    final printers = await printing.Printing.listPrinters();
+    await printing.Printing.directPrintPdf(
       printer: printers.first,
       onLayout: (_) async => document.save(),
       name: fileName,
+      format: _pageFormat,
       usePrinterSettings: true,
     );
   }

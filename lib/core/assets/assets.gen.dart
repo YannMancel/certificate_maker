@@ -9,6 +9,14 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsCertificatesGen {
+  const $AssetsCertificatesGen();
+
+  /// File path: assets/certificates/certificate_judge.png
+  AssetGenImage get certificateJudge =>
+      const AssetGenImage('assets/certificates/certificate_judge.png');
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -40,6 +48,7 @@ class $AssetsImagesGen {
 class Assets {
   Assets._();
 
+  static const $AssetsCertificatesGen certificates = $AssetsCertificatesGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

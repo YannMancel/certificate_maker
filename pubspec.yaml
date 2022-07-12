@@ -24,7 +24,7 @@ dev_dependencies:
   flutter_native_splash: ^2.2.4
   flutter_test:
     sdk: flutter
-  freezed: ^2.0.4
+  freezed: ^2.0.5
   lint: ^1.8.2
 
 flutter_icons:
@@ -46,3 +46,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/certificates/
