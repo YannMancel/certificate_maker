@@ -36,10 +36,9 @@ class PrintingLogic implements PrintingLogicInterface {
       Assets.certificates.certificateJudge.path,
     );
 
-    // final font = await rootBundle.load(
-    //   'assets/fonts/${FontFamily.brightwall}.ttf',
-    // );
-    // final ttf = Font.ttf(font);
+    final ttfBold = await printing.fontFromAssetBundle(
+      'assets/fonts/century_gothic_bold.ttf',
+    );
 
     document.addPage(
       pdf_widgets.Page(
@@ -58,11 +57,11 @@ class PrintingLogic implements PrintingLogicInterface {
                 right: 0.0,
                 top: 245.0,
                 child: pdf_widgets.Text(
-                  'CERTIFIES',
+                  certificate.subtitle1,
                   textAlign: pdf_widgets.TextAlign.center,
                   style: pdf_widgets.TextStyle(
                     fontSize: 18.0,
-                    fontWeight: pdf_widgets.FontWeight.bold,
+                    font: ttfBold,
                     color: const pdf.PdfColor.fromInt(0xFF000000),
                   ),
                 ),
@@ -76,8 +75,7 @@ class PrintingLogic implements PrintingLogicInterface {
                   textAlign: pdf_widgets.TextAlign.center,
                   style: pdf_widgets.TextStyle(
                     fontSize: 32.0,
-                    //font: ttf,
-                    fontWeight: pdf_widgets.FontWeight.bold,
+                    font: ttfBold,
                     decoration: pdf_widgets.TextDecoration.underline,
                     color: const pdf.PdfColor.fromInt(0xFF893C38),
                   ),
@@ -88,12 +86,26 @@ class PrintingLogic implements PrintingLogicInterface {
                 right: 0.0,
                 top: 375.0,
                 child: pdf_widgets.Text(
-                  'ACHIEVED THE TEST OF',
+                  certificate.subtitle2,
                   textAlign: pdf_widgets.TextAlign.center,
                   style: pdf_widgets.TextStyle(
                     fontSize: 20.0,
-                    fontWeight: pdf_widgets.FontWeight.bold,
+                    font: ttfBold,
                     color: const pdf.PdfColor.fromInt(0xFF000000),
+                  ),
+                ),
+              ),
+              pdf_widgets.Positioned(
+                left: 0.0,
+                right: 0.0,
+                top: 440.0,
+                child: pdf_widgets.Text(
+                  certificate.title,
+                  textAlign: pdf_widgets.TextAlign.center,
+                  style: pdf_widgets.TextStyle(
+                    fontSize: 26.0,
+                    font: ttfBold,
+                    color: const pdf.PdfColor.fromInt(0xFF365F91),
                   ),
                 ),
               ),
@@ -114,6 +126,7 @@ class PrintingLogic implements PrintingLogicInterface {
       initialPageFormat: _pageFormat,
       canChangePageFormat: false,
       canChangeOrientation: false,
+      maxPageWidth: 590.0,
     );
   }
 

@@ -19,7 +19,7 @@ dependencies:
   printing: ^5.9.1
 
 dev_dependencies:
-  build_runner: ^2.1.11
+  build_runner: ^2.2.0
   flutter_launcher_icons: ^0.9.3
   flutter_native_splash: ^2.2.4
   flutter_test:
@@ -47,3 +47,8 @@ flutter:
   assets:
     - assets/images/
     - assets/certificates/
+  fonts:
+    - family: CenturyGothic
+      fonts:
+        - asset: assets/fonts/century_gothic_regular.ttf
+        - asset: assets/fonts/century_gothic_bold.ttf

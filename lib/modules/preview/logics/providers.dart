@@ -21,6 +21,7 @@ final asyncPreviewRef = FutureProvider.autoDispose<Widget>(
       ageGroup: '-75kg',
       firstName: 'Yann',
       lastName: 'Mancel',
+      country: 'France',
     );
 
     return logic.createPreview(_kCertificate);
