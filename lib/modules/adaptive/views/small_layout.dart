@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // TODO(YannMancel): implement this layout
 class SmallLayout extends StatelessWidget {
-  const SmallLayout({Key? key}) : super(key: key);
+  const SmallLayout({super.key});
 
   @override
   Widget build(BuildContext context) {

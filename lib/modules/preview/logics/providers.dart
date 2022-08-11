@@ -12,19 +12,14 @@ final asyncPreviewRef = FutureProvider.autoDispose<Widget>(
   (ref) async {
     final logic = ref.watch(printingLogicRef);
 
-    const _kCertificate = Certificate.judge(
+    const certificate = Certificate.judge(
       id: 4,
-      discipline: 'Games',
-      event: 'Double Half Snatch',
-      kettlebell: '2x16kg',
-      weightGroup: 'Open',
-      ageGroup: '-75kg',
       firstName: 'Yann',
       lastName: 'Mancel',
       country: 'France',
     );
 
-    return logic.createPreview(_kCertificate);
+    return logic.createPreview(certificate);
   },
   name: 'asyncPreviewRef',
 );

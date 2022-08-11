@@ -5,9 +5,9 @@ typedef AdaptiveBuilder = Widget Function(BuildContext, ScreenSize);
 
 class AdaptiveLayout extends StatelessWidget {
   const AdaptiveLayout({
-    Key? key,
+    super.key,
     required this.builder,
-  }) : super(key: key);
+  });
 
   final AdaptiveBuilder builder;
 

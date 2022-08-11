@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart'
     show AsyncValueX, ConsumerWidget, WidgetRef;
 
 class PreviewPage extends ConsumerWidget {
-  const PreviewPage({Key? key}) : super(key: key);
+  const PreviewPage({super.key});
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(

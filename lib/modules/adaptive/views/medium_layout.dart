@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // TODO(YannMancel): implement this layout
 class MediumLayout extends StatelessWidget {
-  const MediumLayout({Key? key}) : super(key: key);
+  const MediumLayout({super.key});
 
   @override
   Widget build(BuildContext context) {

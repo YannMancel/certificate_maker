@@ -57,7 +57,7 @@ class PrintingLogic implements PrintingLogicInterface {
                 right: 0.0,
                 top: 245.0,
                 child: pdf_widgets.Text(
-                  certificate.subtitle1,
+                  certificate.certifiesLabel,
                   textAlign: pdf_widgets.TextAlign.center,
                   style: pdf_widgets.TextStyle(
                     fontSize: 18.0,
@@ -86,7 +86,7 @@ class PrintingLogic implements PrintingLogicInterface {
                 right: 0.0,
                 top: 375.0,
                 child: pdf_widgets.Text(
-                  certificate.subtitle2,
+                  certificate.achieveLabel,
                   textAlign: pdf_widgets.TextAlign.center,
                   style: pdf_widgets.TextStyle(
                     fontSize: 20.0,

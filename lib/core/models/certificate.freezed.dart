@@ -17,32 +17,17 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Certificate {
   int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get discipline => throw _privateConstructorUsedError;
-  String get event => throw _privateConstructorUsedError;
-  String get kettlebell => throw _privateConstructorUsedError;
-  String get weightGroup => throw _privateConstructorUsedError;
-  String get ageGroup => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)
+            int id, String firstName, String lastName, String country)
         judge,
     required TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -56,21 +41,11 @@ mixin _$Certificate {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)?
+    TResult Function(int id, String firstName, String lastName, String country)?
         judge,
     TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -84,21 +59,11 @@ mixin _$Certificate {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)?
+    TResult Function(int id, String firstName, String lastName, String country)?
         judge,
     TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -141,17 +106,7 @@ abstract class $CertificateCopyWith<$Res> {
   factory $CertificateCopyWith(
           Certificate value, $Res Function(Certificate) then) =
       _$CertificateCopyWithImpl<$Res>;
-  $Res call(
-      {int id,
-      String title,
-      String discipline,
-      String event,
-      String kettlebell,
-      String weightGroup,
-      String ageGroup,
-      String firstName,
-      String lastName,
-      String country});
+  $Res call({int id, String firstName, String lastName, String country});
 }
 
 /// @nodoc
@@ -165,12 +120,6 @@ class _$CertificateCopyWithImpl<$Res> implements $CertificateCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
-    Object? discipline = freezed,
-    Object? event = freezed,
-    Object? kettlebell = freezed,
-    Object? weightGroup = freezed,
-    Object? ageGroup = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? country = freezed,
@@ -180,30 +129,6 @@ class _$CertificateCopyWithImpl<$Res> implements $CertificateCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      discipline: discipline == freezed
-          ? _value.discipline
-          : discipline // ignore: cast_nullable_to_non_nullable
-              as String,
-      event: event == freezed
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
-      kettlebell: kettlebell == freezed
-          ? _value.kettlebell
-          : kettlebell // ignore: cast_nullable_to_non_nullable
-              as String,
-      weightGroup: weightGroup == freezed
-          ? _value.weightGroup
-          : weightGroup // ignore: cast_nullable_to_non_nullable
-              as String,
-      ageGroup: ageGroup == freezed
-          ? _value.ageGroup
-          : ageGroup // ignore: cast_nullable_to_non_nullable
-              as String,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -225,17 +150,7 @@ abstract class _$$_JudgeCopyWith<$Res> implements $CertificateCopyWith<$Res> {
   factory _$$_JudgeCopyWith(_$_Judge value, $Res Function(_$_Judge) then) =
       __$$_JudgeCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {int id,
-      String title,
-      String discipline,
-      String event,
-      String kettlebell,
-      String weightGroup,
-      String ageGroup,
-      String firstName,
-      String lastName,
-      String country});
+  $Res call({int id, String firstName, String lastName, String country});
 }
 
 /// @nodoc
@@ -250,12 +165,6 @@ class __$$_JudgeCopyWithImpl<$Res> extends _$CertificateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
-    Object? discipline = freezed,
-    Object? event = freezed,
-    Object? kettlebell = freezed,
-    Object? weightGroup = freezed,
-    Object? ageGroup = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? country = freezed,
@@ -265,30 +174,6 @@ class __$$_JudgeCopyWithImpl<$Res> extends _$CertificateCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      discipline: discipline == freezed
-          ? _value.discipline
-          : discipline // ignore: cast_nullable_to_non_nullable
-              as String,
-      event: event == freezed
-          ? _value.event
-          : event // ignore: cast_nullable_to_non_nullable
-              as String,
-      kettlebell: kettlebell == freezed
-          ? _value.kettlebell
-          : kettlebell // ignore: cast_nullable_to_non_nullable
-              as String,
-      weightGroup: weightGroup == freezed
-          ? _value.weightGroup
-          : weightGroup // ignore: cast_nullable_to_non_nullable
-              as String,
-      ageGroup: ageGroup == freezed
-          ? _value.ageGroup
-          : ageGroup // ignore: cast_nullable_to_non_nullable
-              as String,
       firstName: firstName == freezed
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
@@ -310,31 +195,12 @@ class __$$_JudgeCopyWithImpl<$Res> extends _$CertificateCopyWithImpl<$Res>
 class _$_Judge implements _Judge {
   const _$_Judge(
       {required this.id,
-      this.title = 'JUDGE',
-      required this.discipline,
-      required this.event,
-      required this.kettlebell,
-      required this.weightGroup,
-      required this.ageGroup,
       required this.firstName,
       required this.lastName,
       required this.country});
 
   @override
   final int id;
-  @override
-  @JsonKey()
-  final String title;
-  @override
-  final String discipline;
-  @override
-  final String event;
-  @override
-  final String kettlebell;
-  @override
-  final String weightGroup;
-  @override
-  final String ageGroup;
   @override
   final String firstName;
   @override
@@ -344,7 +210,7 @@ class _$_Judge implements _Judge {
 
   @override
   String toString() {
-    return 'Certificate.judge(id: $id, title: $title, discipline: $discipline, event: $event, kettlebell: $kettlebell, weightGroup: $weightGroup, ageGroup: $ageGroup, firstName: $firstName, lastName: $lastName, country: $country)';
+    return 'Certificate.judge(id: $id, firstName: $firstName, lastName: $lastName, country: $country)';
   }
 
   @override
@@ -353,15 +219,6 @@ class _$_Judge implements _Judge {
         (other.runtimeType == runtimeType &&
             other is _$_Judge &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality()
-                .equals(other.discipline, discipline) &&
-            const DeepCollectionEquality().equals(other.event, event) &&
-            const DeepCollectionEquality()
-                .equals(other.kettlebell, kettlebell) &&
-            const DeepCollectionEquality()
-                .equals(other.weightGroup, weightGroup) &&
-            const DeepCollectionEquality().equals(other.ageGroup, ageGroup) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
             const DeepCollectionEquality().equals(other.country, country));
@@ -371,12 +228,6 @@ class _$_Judge implements _Judge {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(discipline),
-      const DeepCollectionEquality().hash(event),
-      const DeepCollectionEquality().hash(kettlebell),
-      const DeepCollectionEquality().hash(weightGroup),
-      const DeepCollectionEquality().hash(ageGroup),
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
       const DeepCollectionEquality().hash(country));
@@ -390,20 +241,11 @@ class _$_Judge implements _Judge {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)
+            int id, String firstName, String lastName, String country)
         judge,
     required TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -414,28 +256,17 @@ class _$_Judge implements _Judge {
             String country)
         ranking,
   }) {
-    return judge(id, title, discipline, event, kettlebell, weightGroup,
-        ageGroup, firstName, lastName, country);
+    return judge(id, firstName, lastName, country);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)?
+    TResult Function(int id, String firstName, String lastName, String country)?
         judge,
     TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -446,28 +277,17 @@ class _$_Judge implements _Judge {
             String country)?
         ranking,
   }) {
-    return judge?.call(id, title, discipline, event, kettlebell, weightGroup,
-        ageGroup, firstName, lastName, country);
+    return judge?.call(id, firstName, lastName, country);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)?
+    TResult Function(int id, String firstName, String lastName, String country)?
         judge,
     TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -480,8 +300,7 @@ class _$_Judge implements _Judge {
     required TResult orElse(),
   }) {
     if (judge != null) {
-      return judge(id, title, discipline, event, kettlebell, weightGroup,
-          ageGroup, firstName, lastName, country);
+      return judge(id, firstName, lastName, country);
     }
     return orElse();
   }
@@ -521,30 +340,12 @@ class _$_Judge implements _Judge {
 abstract class _Judge implements Certificate {
   const factory _Judge(
       {required final int id,
-      final String title,
-      required final String discipline,
-      required final String event,
-      required final String kettlebell,
-      required final String weightGroup,
-      required final String ageGroup,
       required final String firstName,
       required final String lastName,
       required final String country}) = _$_Judge;
 
   @override
   int get id;
-  @override
-  String get title;
-  @override
-  String get discipline;
-  @override
-  String get event;
-  @override
-  String get kettlebell;
-  @override
-  String get weightGroup;
-  @override
-  String get ageGroup;
   @override
   String get firstName;
   @override
@@ -565,7 +366,7 @@ abstract class _$$_RankingCopyWith<$Res> implements $CertificateCopyWith<$Res> {
   @override
   $Res call(
       {int id,
-      String title,
+      String rank,
       String discipline,
       String event,
       String kettlebell,
@@ -588,7 +389,7 @@ class __$$_RankingCopyWithImpl<$Res> extends _$CertificateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? title = freezed,
+    Object? rank = freezed,
     Object? discipline = freezed,
     Object? event = freezed,
     Object? kettlebell = freezed,
@@ -603,9 +404,9 @@ class __$$_RankingCopyWithImpl<$Res> extends _$CertificateCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      title: title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      rank: rank == freezed
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
               as String,
       discipline: discipline == freezed
           ? _value.discipline
@@ -648,7 +449,7 @@ class __$$_RankingCopyWithImpl<$Res> extends _$CertificateCopyWithImpl<$Res>
 class _$_Ranking implements _Ranking {
   const _$_Ranking(
       {required this.id,
-      required this.title,
+      required this.rank,
       required this.discipline,
       required this.event,
       required this.kettlebell,
@@ -661,7 +462,7 @@ class _$_Ranking implements _Ranking {
   @override
   final int id;
   @override
-  final String title;
+  final String rank;
   @override
   final String discipline;
   @override
@@ -681,7 +482,7 @@ class _$_Ranking implements _Ranking {
 
   @override
   String toString() {
-    return 'Certificate.ranking(id: $id, title: $title, discipline: $discipline, event: $event, kettlebell: $kettlebell, weightGroup: $weightGroup, ageGroup: $ageGroup, firstName: $firstName, lastName: $lastName, country: $country)';
+    return 'Certificate.ranking(id: $id, rank: $rank, discipline: $discipline, event: $event, kettlebell: $kettlebell, weightGroup: $weightGroup, ageGroup: $ageGroup, firstName: $firstName, lastName: $lastName, country: $country)';
   }
 
   @override
@@ -690,7 +491,7 @@ class _$_Ranking implements _Ranking {
         (other.runtimeType == runtimeType &&
             other is _$_Ranking &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.rank, rank) &&
             const DeepCollectionEquality()
                 .equals(other.discipline, discipline) &&
             const DeepCollectionEquality().equals(other.event, event) &&
@@ -708,7 +509,7 @@ class _$_Ranking implements _Ranking {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(rank),
       const DeepCollectionEquality().hash(discipline),
       const DeepCollectionEquality().hash(event),
       const DeepCollectionEquality().hash(kettlebell),
@@ -727,20 +528,11 @@ class _$_Ranking implements _Ranking {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)
+            int id, String firstName, String lastName, String country)
         judge,
     required TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -751,28 +543,18 @@ class _$_Ranking implements _Ranking {
             String country)
         ranking,
   }) {
-    return ranking(id, title, discipline, event, kettlebell, weightGroup,
+    return ranking(id, rank, discipline, event, kettlebell, weightGroup,
         ageGroup, firstName, lastName, country);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)?
+    TResult Function(int id, String firstName, String lastName, String country)?
         judge,
     TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -783,28 +565,18 @@ class _$_Ranking implements _Ranking {
             String country)?
         ranking,
   }) {
-    return ranking?.call(id, title, discipline, event, kettlebell, weightGroup,
+    return ranking?.call(id, rank, discipline, event, kettlebell, weightGroup,
         ageGroup, firstName, lastName, country);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            int id,
-            String title,
-            String discipline,
-            String event,
-            String kettlebell,
-            String weightGroup,
-            String ageGroup,
-            String firstName,
-            String lastName,
-            String country)?
+    TResult Function(int id, String firstName, String lastName, String country)?
         judge,
     TResult Function(
             int id,
-            String title,
+            String rank,
             String discipline,
             String event,
             String kettlebell,
@@ -817,7 +589,7 @@ class _$_Ranking implements _Ranking {
     required TResult orElse(),
   }) {
     if (ranking != null) {
-      return ranking(id, title, discipline, event, kettlebell, weightGroup,
+      return ranking(id, rank, discipline, event, kettlebell, weightGroup,
           ageGroup, firstName, lastName, country);
     }
     return orElse();
@@ -858,7 +630,7 @@ class _$_Ranking implements _Ranking {
 abstract class _Ranking implements Certificate {
   const factory _Ranking(
       {required final int id,
-      required final String title,
+      required final String rank,
       required final String discipline,
       required final String event,
       required final String kettlebell,
@@ -870,17 +642,11 @@ abstract class _Ranking implements Certificate {
 
   @override
   int get id;
-  @override
-  String get title;
-  @override
+  String get rank;
   String get discipline;
-  @override
   String get event;
-  @override
   String get kettlebell;
-  @override
   String get weightGroup;
-  @override
   String get ageGroup;
   @override
   String get firstName;

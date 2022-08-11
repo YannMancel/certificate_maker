@@ -8,9 +8,9 @@ typedef AsyncBuilder<T> = Future<T> Function(WidgetRef ref);
 
 class DeferredSetup extends ConsumerStatefulWidget {
   const DeferredSetup({
-    Key? key,
+    super.key,
     required this.asyncBuilder,
-  }) : super(key: key);
+  });
 
   final AsyncBuilder<Widget> asyncBuilder;
 

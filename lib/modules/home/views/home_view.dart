@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({
-    Key? key,
+    super.key,
     required this.title,
-  }) : super(key: key);
+  });
 
   final String title;
 
