@@ -1,8 +1,16 @@
 import 'package:certificate_maker/_features.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart' show GoRouter;
+import 'package:hooks_riverpod/hooks_riverpod.dart'
+    show ConsumerWidget, WidgetRef;
 
 class LargeLayout extends StatelessWidget {
-  const LargeLayout({super.key});
+  const LargeLayout({
+    super.key,
+    required this.child,
+  });
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -11,19 +19,7 @@ class LargeLayout extends StatelessWidget {
         children: <Widget>[
           const _PersistentDrawer(),
           Expanded(
-            child: Scaffold(
-              appBar: AppBar(
-                title: const Text(kAppName),
-              ),
-              body: const HomeView(title: kAppName),
-              floatingActionButton: FloatingActionButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  PreviewPage.route<void>(),
-                ),
-                child: const Icon(Icons.favorite),
-              ),
-            ),
+            child: SmallLayout(child: child),
           ),
         ],
       ),
@@ -31,13 +27,13 @@ class LargeLayout extends StatelessWidget {
   }
 }
 
-class _PersistentDrawer extends StatelessWidget {
+class _PersistentDrawer extends ConsumerWidget {
   const _PersistentDrawer();
 
   Size get _size => const Size.square(250.0);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     assert(debugCheckHasMaterial(context));
 
     return Ink(
@@ -67,13 +63,32 @@ class _PersistentDrawer extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              (_, index) => const ListTile(
-                title: Text('text'),
-              ),
+              (_, index) => _PersistentItem(index: index),
               childCount: 3,
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _PersistentItem extends StatelessWidget {
+  const _PersistentItem({required this.index});
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    final router = GoRouter.of(context);
+
+    return AnimatedBuilder(
+      animation: router,
+      builder: (_, __) => ListTile(
+        key: Key('large_layout_$index'),
+        onTap: () => PreviewView.go(context),
+        title: const Text('preview'),
+        textColor: router.isPreview ? Colors.blue : null,
       ),
     );
   }

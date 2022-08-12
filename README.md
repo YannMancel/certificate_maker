@@ -15,25 +15,27 @@
 
 ## Dependencies
 * Flutter Version Management
-    * [fvm][dependencies_fvm]
+  * [fvm][dependencies_fvm]
 * Linter
-    * [lint][dependencies_lint]
+  * [lint][dependencies_lint]
 * Generators (assets, launcher icon, splash screens & dependency graph)
-    * [flutter_gen][dependencies_flutter_gen]
-    * [flutter_launcher_icons][dependencies_flutter_launcher_icons]
-    * [flutter_native_splash][dependencies_flutter_native_splash]
-    * [lakos][dependencies_lakos]
+  * [flutter_gen][dependencies_flutter_gen]
+  * [flutter_launcher_icons][dependencies_flutter_launcher_icons]
+  * [flutter_native_splash][dependencies_flutter_native_splash]
+  * [lakos][dependencies_lakos]
 * Data class generator
-    * [build_runner][dependencies_build_runner]
-    * [freezed][dependencies_freezed]
-    * [freezed_annotation][dependencies_freezed_annotation]
+  * [build_runner][dependencies_build_runner]
+  * [freezed][dependencies_freezed]
+  * [freezed_annotation][dependencies_freezed_annotation]
 * State managers
-    * [flutter_hooks][dependencies_flutter_hooks]
-    * [hooks_riverpod][dependencies_hooks_riverpod]
+  * [flutter_hooks][dependencies_flutter_hooks]
+  * [hooks_riverpod][dependencies_hooks_riverpod]
 * Directory path
-    * [dependencies_path_provider]
+  * [dependencies_path_provider]
 * Pdf & Printing
-    * [printing][dependencies_printing]
+  * [printing][dependencies_printing]
+* Navigation
+  * [go_router][dependencies_go_router]
 
 ## Troubleshooting
 
@@ -63,7 +65,7 @@
 [dependencies_hooks_riverpod]: https://pub.dev/packages/hooks_riverpod
 [dependencies_path_provider]: https://pub.dev/packages/path_provider
 [dependencies_printing]: https://pub.dev/packages/printing
+[dependencies_go_router]: https://pub.dev/packages/go_router
 [useful_android_studio]: https://developer.android.com/studio
 [useful_virtual_device]: https://developer.android.com/studio/run/managing-avds.html
 [useful_developer_options]: https://developer.android.com/studio/debug/dev-options.html#enable
-

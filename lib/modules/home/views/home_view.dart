@@ -2,12 +2,7 @@ import 'package:certificate_maker/_features.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({
-    super.key,
-    required this.title,
-  });
-
-  final String title;
+  const HomeView({super.key});
 
   double get _factor => 0.7;
 
@@ -15,12 +10,26 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterial(context));
 
-    return Center(
-      child: FractionallySizedBox(
-        widthFactor: _factor,
-        heightFactor: _factor,
-        child: Assets.images.ikmfLogoLabels.image(),
-      ),
+    return Stack(
+      children: <Widget>[
+        Center(
+          child: FractionallySizedBox(
+            widthFactor: _factor,
+            heightFactor: _factor,
+            child: Assets.images.ikmfLogoLabels.image(),
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: FloatingActionButton(
+              onPressed: () => PreviewView.go(context),
+              child: const Icon(Icons.add),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

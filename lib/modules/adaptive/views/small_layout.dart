@@ -1,17 +1,21 @@
+import 'package:certificate_maker/_features.dart';
 import 'package:flutter/material.dart';
 
-// TODO(YannMancel): implement this layout
 class SmallLayout extends StatelessWidget {
-  const SmallLayout({super.key});
+  const SmallLayout({
+    super.key,
+    required this.child,
+  });
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        color: Colors.red,
-        alignment: Alignment.center,
-        child: const Text('SMALL'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(kAppName),
       ),
+      body: child,
     );
   }
 }
