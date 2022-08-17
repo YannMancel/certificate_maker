@@ -1,7 +1,7 @@
 import 'package:certificate_maker/_features.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart'
-    show GoRoute, GoRouter, UrlPathStrategy;
+    show CustomTransitionPage, GoRoute, GoRouter, UrlPathStrategy;
 
 typedef RouteBuilder = Widget Function(Object? extra);
 
@@ -22,8 +22,10 @@ class NavigationLogic implements NavigationLogicInterface {
     return GoRoute(
       name: name,
       path: path,
-      pageBuilder: (_, state) => MaterialPage(
+      pageBuilder: (_, state) => CustomTransitionPage<void>(
         key: state.pageKey,
+        restorationId: state.pageKey.value,
+        transitionsBuilder: Transitions.fadeTransitionsBuilder,
         child: AdaptiveView(
           child: builder(state.extra),
         ),

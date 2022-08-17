@@ -4,5 +4,6 @@ export 'enums/_enums.dart';
 export 'extensions/_extensions.dart';
 export 'mixins/_mixins.dart';
 export 'models/_models.dart';
+export 'transitions/_transitions.dart';
 export 'utils/_utils.dart';
 export 'widgets/_widgets.dart';
