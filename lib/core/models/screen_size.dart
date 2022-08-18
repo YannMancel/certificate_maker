@@ -1,3 +1,4 @@
+import 'package:certificate_maker/_features.dart';
 import 'package:flutter/material.dart' show Size, optionalTypeArgs;
 import 'package:freezed_annotation/freezed_annotation.dart' show freezed;
 
@@ -12,8 +13,8 @@ class ScreenSize with _$ScreenSize {
   const factory ScreenSize.large() = _Large;
 
   factory ScreenSize.fromSize(Size size) {
-    if (size.width > 1024.0) return const ScreenSize.large();
-    if (size.width > 332.0) return const ScreenSize.medium();
+    if (size.width > kLargeWidth) return const ScreenSize.large();
+    if (size.width > kMediumWidth) return const ScreenSize.medium();
     return const ScreenSize.small();
   }
 }
